@@ -234,12 +234,6 @@ int main()
         }
     }
 
-    row = 2;
-    printf("Row %d: ",row );
-    for (column = 0; column < kTreeMatrixSize; column++)
-        printf("%d ", MatrixValue( treeMatrix, row, column ));
-    printf("\n");
-
     result = 0;
     for (index = 0; index < kTreeMatrixSize; index++)
     {
