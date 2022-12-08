@@ -245,7 +245,7 @@ int main()
     TDirectory rootDirectory;
     TDirectoryPtr currentDirectory;
 
-    printf( "Advent of Code - Day 5\n" );
+    printf( "Advent of Code - Day 7\n" );
 
     error = fopen_s( & input, fileName, "r" );
 
