@@ -108,7 +108,7 @@ void PrintSensor(const TSensor& data)
     PrintPoint(data.point[kSENSOR]);
     printf(" Beacon: ");
     PrintPoint(data.point[kBEACON]);
-    printf(" Distance: %d\n", data.distance);
+    printf(" Distance: %lld\n", data.distance);
 }
 
 bool FindPattern(char** buffer, const char* pattern)
@@ -124,6 +124,11 @@ bool FindPattern(char** buffer, const char* pattern)
         result = (*ptrPattern == **buffer);
         if (result == true)
             ptrPattern++;
+        else
+        {
+            *buffer -= ptrPattern - pattern;
+            ptrPattern = const_cast<char*>(pattern);
+        }
         (*buffer)++;
     }
 
@@ -167,36 +172,14 @@ TSensorPtr ReadSensorData(const char* buffer)
     InitPoint(result->point[kSENSOR]);
     InitPoint(result->point[kBEACON]);
 
-    if (FindPattern(&ptr, kSensorPattern) == false)
-    {
-        delete result;
-        return NULL;
-    }
-
+    // Trust the system...
+    FindPattern(&ptr, kSensorPattern);
     sscanf_s(ptr, "%lld", &result->point[kSENSOR].x);
-
-    if (FindPattern(&ptr, kPointPattern) == false)
-    {
-        delete result;
-        return NULL;
-    }
-
+    FindPattern(&ptr, kPointPattern);
     sscanf_s(ptr, "%lld", &result->point[kSENSOR].y);
-
-    if (FindPattern(&ptr, kBeaconPattern) == false)
-    {
-        delete result;
-        return NULL;
-    }
-
+    FindPattern(&ptr, kBeaconPattern);
     sscanf_s(ptr, "%lld", &result->point[kBEACON].x);
-
-    if (FindPattern(&ptr, kPointPattern) == false)
-    {
-        delete result;
-        return NULL;
-    }
-
+    FindPattern(&ptr, kPointPattern);
     sscanf_s(ptr, "%lld", &result->point[kBEACON].y);
 
     result->distance = Distance(result->point[kSENSOR], result->point[kBEACON]);
@@ -305,7 +288,7 @@ TRasterPtr InsertRaster(TRasterPtr first, int64_t min, int64_t max)
     return first;
 }
 
-bool Intersect(int y, TSensor& sensor, int64_t& xmin, int64_t& xmax)
+bool Intersect(int64_t y, TSensor& sensor, int64_t& xmin, int64_t& xmax)
 {
     int64_t height;
 
@@ -319,12 +302,12 @@ bool Intersect(int y, TSensor& sensor, int64_t& xmin, int64_t& xmax)
     return true;
 }
 
-bool RemoveFromRaster(TRaster& raster, int64_t value)
+bool RemoveFromRaster(TRasterPtr* raster, int64_t value)
 {
     TRasterPtr ptr;
     TRasterPtr previous;
 
-    ptr = &raster;
+    ptr = *raster;
     previous = NULL;
     while (ptr != NULL)
     {
@@ -334,7 +317,10 @@ bool RemoveFromRaster(TRaster& raster, int64_t value)
         {
             if (ptr->min == value && ptr->max == value)
             {
-                previous->next = ptr->next;
+                if (previous != NULL)
+                    previous->next = ptr->next;
+                else
+                    *raster = ptr->next;
                 delete ptr;
                 return true;
             }
@@ -371,7 +357,7 @@ bool RemoveFromRaster(TRaster& raster, int64_t value)
     return true;
 }
 
-int FindFirstHole(TRaster& raster, int64_t maxCoordinate )
+int64_t FindFirstHole(TRaster& raster, int64_t maxCoordinate)
 {
     if (raster.min == 1)
         return 0;
@@ -379,7 +365,7 @@ int FindFirstHole(TRaster& raster, int64_t maxCoordinate )
     if (raster.max == maxCoordinate - 1)
         return maxCoordinate;
 
-    return raster.max+1;
+    return raster.max + 1;
 }
 
 int main()
@@ -447,7 +433,7 @@ int main()
 #else
     y = 2000000;
 #endif
-    printf("y=%d: ", y);
+    printf("y=%lld: ", y);
     raster = NULL;
     for (auto it = sensors.begin(); it != sensors.end(); ++it)
         if (Intersect(y, **it, xmin, xmax) == true)
@@ -456,12 +442,13 @@ int main()
     for (auto it = sensors.begin(); it != sensors.end(); ++it)
         for (index = 0; index < 2; index++)
             if ((*it)->point[index].y == y)
-                RemoveFromRaster(*raster, (*it)->point[index].x);
+                RemoveFromRaster(&raster, (*it)->point[index].x);
+
     PrintRaster(*raster);
     result = RasterLength(*raster);
     DeleteRaster(&raster);
 
-    printf("result 1: %d\n", result);
+    printf("result 1: %lld\n", result);
 
     clockEnd = clock();
     time_taken
@@ -482,40 +469,21 @@ int main()
 
     for (y = 0; y <= maxCoordinate; y++)
     {
-#if( COMMENT == true )
-        printf("[%d]\n", y);
-#endif
         raster = NULL;
         for (auto it = sensors.begin(); it != sensors.end(); ++it)
             if (Intersect(y, **it, xmin, xmax) == true)
             {
-#if( COMMENT == true )
-                printf("\t\t[%d,%d]", xmin, xmax);
-#endif
-
                 if (xmax >= 0 && xmin <= maxCoordinate)
                 {
                     xmin = (xmin > 0) ? xmin : 0;
                     xmax = (xmax < maxCoordinate) ? xmax : maxCoordinate;
                     raster = InsertRaster(raster, xmin, xmax);
-#if( COMMENT == true )
-                    printf(" => add [%d,%d] : ", xmin, xmax);
-                    PrintRaster(*raster);
-#endif
                 }
-#if( COMMENT == true )
-                else
-                    printf("\n");
-#endif
             }
 
-#if( COMMENT == true )
-        printf("\t");
-        PrintRaster(*raster);
-#endif
         if (RasterLength(*raster) == maxCoordinate)
         {
-            printf("[%d] :", y);
+            printf("[%lld] :", y);
             PrintRaster(*raster);
             printf(" => GOTCHA!\n");
             break;
@@ -531,7 +499,7 @@ int main()
     }
 
     result = FindFirstHole(*raster, maxCoordinate);
-    result *= maxCoordinate;
+    result *= 4000000;
     result += y;
     DeleteRaster(&raster);
 
