@@ -1,0 +1,598 @@
+Advent of Code - Day 16
+Opening file C:/Users/aforgiel/source/repos/AdventOfCode2022/AdventOfCodeDay16/sample.txt => 0
+name: AA
+name: BB
+name: CC
+name: DD
+name: EE
+name: FF
+name: GG
+name: HH
+name: II
+name: JJ
+[0]: Valve "AA", flow rate: 0, score: 0
+        [0]: DD
+        [1]: II
+        [2]: BB
+[1]: Valve "BB", flow rate: 13, score: 0
+        [0]: CC
+        [1]: AA
+[2]: Valve "CC", flow rate: 2, score: 0
+        [0]: DD
+        [1]: BB
+[3]: Valve "DD", flow rate: 20, score: 0
+        [0]: CC
+        [1]: AA
+        [2]: EE
+[4]: Valve "EE", flow rate: 3, score: 0
+        [0]: FF
+        [1]: DD
+[5]: Valve "FF", flow rate: 0, score: 0
+        [0]: EE
+        [1]: GG
+[6]: Valve "GG", flow rate: 0, score: 0
+        [0]: FF
+        [1]: HH
+[7]: Valve "HH", flow rate: 22, score: 0
+        [0]: GG
+[8]: Valve "II", flow rate: 0, score: 0
+        [0]: AA
+        [1]: JJ
+[9]: Valve "JJ", flow rate: 21, score: 0
+        [0]: II
+[AA]
+        [0] -> DD, next: CC, id: 1
+        [1] -> II, next: JJ, id: 2
+        [2] -> BB, next: CC, id: 2
+[BB]
+        [0] -> AA, next: DD, id: 1
+        [1] -> CC, next: DD, id: 2
+[CC]
+        [0] -> BB, next: AA, id: 1
+        [1] -> DD, next: AA, id: 2
+[DD]
+        [0] -> AA, next: II, id: 2
+        [1] -> CC, next: BB, id: 1
+        [2] -> EE, next: FF, id: 3
+[EE]
+        [0] -> DD, next: EE, id: 3
+        [1] -> FF, next: GG, id: 3
+[FF]
+        [0] -> EE, next: DD, id: 3
+        [1] -> GG, next: HH, id: 3
+[GG]
+        [0] -> FF, next: EE, id: 3
+        [1] -> HH, next: GG, id: 3
+[HH]
+        [0] -> GG, next: FF, id: 3
+[II]
+        [0] -> AA, next: BB, id: 2
+        [1] -> JJ, next: II, id: 2
+[JJ]
+        [0] -> II, next: AA, id: 2
+Total number of valves: 6
+***** COUNTDOWN 6 ******
+ComputeDistances(AA)
+        Add face 1 to backlog
+        Add face 2 to backlog
+        Process face 2
+                Orientation next
+                Origin AA
+                        Process valve DD (2147483647) with distance 1
+                                Update distance to 1
+                                Add face 3 to backlog
+                        Process valve CC (2147483647) with distance 2
+                                Update distance to 2
+                        Process valve BB (2147483647) with distance 3
+                                Update distance to 3
+                        Process valve AA (0) with distance 4
+                Orientation previous
+                Origin AA
+                        Process valve BB (3) with distance 1
+                                Update distance to 1
+                        Process valve CC (2) with distance 2
+        Process face 2
+                Orientation next
+                Origin AA
+                        Process valve II (2147483647) with distance 1
+                                Update distance to 1
+                        Process valve JJ (2147483647) with distance 2
+                                Update distance to 2
+                        Process valve II (1) with distance 3
+                        Process valve AA (0) with distance 4
+                        Process valve BB (1) with distance 5
+                        Process valve CC (2) with distance 6
+                        Process valve DD (1) with distance 7
+                        Process valve AA (0) with distance 8
+                Orientation previous
+                Origin AA
+                        Process valve DD (1) with distance 1
+                        Process valve CC (2) with distance 2
+                        Process valve BB (1) with distance 3
+                        Process valve AA (0) with distance 4
+                        Process valve II (1) with distance 5
+                        Process valve JJ (2) with distance 6
+        Process face 3
+                Orientation next
+                Origin DD
+                        Process valve EE (2147483647) with distance 2
+                                Update distance to 2
+                        Process valve FF (2147483647) with distance 3
+                                Update distance to 3
+                        Process valve GG (2147483647) with distance 4
+                                Update distance to 4
+                        Process valve HH (2147483647) with distance 5
+                                Update distance to 5
+                        Process valve GG (4) with distance 6
+                        Process valve FF (3) with distance 7
+                        Process valve EE (2) with distance 8
+                        Process valve DD (1) with distance 9
+                Orientation previous
+                Origin DD
+                        Process valve EE (2) with distance 2
+                        Process valve FF (3) with distance 3
+                        Process valve GG (4) with distance 4
+                        Process valve HH (5) with distance 5
+                        Process valve GG (4) with distance 6
+                        Process valve FF (3) with distance 7
+[AA] origin
+[BB] distance: 1
+[CC] distance: 2
+[DD] distance: 1
+[EE] distance: 2
+[FF] distance: 3
+[GG] distance: 4
+[HH] distance: 5
+[II] distance: 1
+[JJ] distance: 2
+Max distance: 7
+[DD] score: 120
+[JJ] score: 105
+[BB] score: 78
+[HH] score: 44
+[EE] score: 15
+[CC] score: 10
+***** COUNTDOWN 5 ******
+ComputeDistances(DD)
+        Add face 2 to backlog
+        Add face 1 to backlog
+        Add face 3 to backlog
+        Process face 1
+                Orientation next
+                Origin DD
+                        Process valve AA (2147483647) with distance 1
+                                Update distance to 1
+                        Process valve II (2147483647) with distance 2
+                                Update distance to 2
+                        Process valve JJ (2147483647) with distance 3
+                                Update distance to 3
+                        Process valve II (2) with distance 4
+                        Process valve AA (1) with distance 5
+                        Process valve BB (2147483647) with distance 6
+                                Update distance to 6
+                        Process valve CC (2147483647) with distance 7
+                                Update distance to 7
+                        Process valve DD (0) with distance 8
+                Orientation previous
+                Origin DD
+                        Process valve CC (7) with distance 1
+                                Update distance to 1
+                        Process valve BB (6) with distance 2
+                                Update distance to 2
+                        Process valve AA (1) with distance 3
+                        Process valve II (2) with distance 4
+                        Process valve JJ (3) with distance 5
+                        Process valve II (2) with distance 6
+        Process face 2
+                Orientation next
+                Origin DD
+                        Process valve CC (1) with distance 1
+                        Process valve BB (2) with distance 2
+                        Process valve AA (1) with distance 3
+                        Process valve DD (0) with distance 4
+                Orientation previous
+                Origin DD
+                        Process valve AA (1) with distance 1
+                        Process valve BB (2) with distance 2
+        Process face 3
+                Orientation next
+                Origin DD
+                        Process valve EE (2147483647) with distance 1
+                                Update distance to 1
+                        Process valve FF (2147483647) with distance 2
+                                Update distance to 2
+                        Process valve GG (2147483647) with distance 3
+                                Update distance to 3
+                        Process valve HH (2147483647) with distance 4
+                                Update distance to 4
+                        Process valve GG (3) with distance 5
+                        Process valve FF (2) with distance 6
+                        Process valve EE (1) with distance 7
+                        Process valve DD (0) with distance 8
+                Orientation previous
+                Origin DD
+                        Process valve EE (1) with distance 1
+                        Process valve FF (2) with distance 2
+                        Process valve GG (3) with distance 3
+                        Process valve HH (4) with distance 4
+                        Process valve GG (3) with distance 5
+                        Process valve FF (2) with distance 6
+[AA] distance: 1
+[BB] distance: 2
+[CC] distance: 1
+[DD] origin
+[EE] distance: 1
+[FF] distance: 2
+[GG] distance: 3
+[HH] distance: 4
+[II] distance: 2
+[JJ] distance: 3
+Max distance: 6
+[JJ] score: 183
+[BB] score: 172
+[HH] score: 164
+[EE] score: 135
+[CC] score: 130
+***** COUNTDOWN 4 ******
+ComputeDistances(JJ)
+        Add face 2 to backlog
+        Process face 2
+                Orientation next
+                Origin JJ
+                        Process valve II (2147483647) with distance 1
+                                Update distance to 1
+                        Process valve AA (2147483647) with distance 2
+                                Update distance to 2
+                                Add face 1 to backlog
+                        Process valve BB (2147483647) with distance 3
+                                Update distance to 3
+                        Process valve CC (2147483647) with distance 4
+                                Update distance to 4
+                        Process valve DD (2147483647) with distance 5
+                                Update distance to 5
+                                Add face 3 to backlog
+                        Process valve AA (2) with distance 6
+                        Process valve II (1) with distance 7
+                        Process valve JJ (0) with distance 8
+                Orientation previous
+                Origin JJ
+                        Process valve II (1) with distance 1
+                        Process valve AA (2) with distance 2
+                        Process valve DD (5) with distance 3
+                                Update distance to 3
+                        Process valve CC (4) with distance 4
+                        Process valve BB (3) with distance 5
+                        Process valve AA (2) with distance 6
+        Process face 2
+                Orientation next
+                Origin AA
+                        Process valve DD (3) with distance 3
+                        Process valve CC (4) with distance 4
+                        Process valve BB (3) with distance 5
+                        Process valve AA (2) with distance 6
+                Orientation previous
+                Origin AA
+                        Process valve BB (3) with distance 3
+                        Process valve CC (4) with distance 4
+        Process face 3
+                Orientation next
+                Origin DD
+                        Process valve EE (2147483647) with distance 4
+                                Update distance to 4
+                        Process valve FF (2147483647) with distance 5
+                                Update distance to 5
+                        Process valve GG (2147483647) with distance 6
+                                Update distance to 6
+                        Process valve HH (2147483647) with distance 7
+                                Update distance to 7
+                        Process valve GG (6) with distance 8
+                        Process valve FF (5) with distance 9
+                        Process valve EE (4) with distance 10
+                        Process valve DD (3) with distance 11
+                Orientation previous
+                Origin DD
+                        Process valve EE (4) with distance 4
+                        Process valve FF (5) with distance 5
+                        Process valve GG (6) with distance 6
+                        Process valve HH (7) with distance 7
+                        Process valve GG (6) with distance 8
+                        Process valve FF (5) with distance 9
+[AA] distance: 2
+[BB] distance: 3
+[CC] distance: 4
+[DD] distance: 3
+[EE] distance: 4
+[FF] distance: 5
+[GG] distance: 6
+[HH] distance: 7
+[II] distance: 1
+[JJ] origin
+Max distance: 9
+[BB] score: 447
+[HH] score: 413
+[EE] score: 384
+[CC] score: 379
+***** COUNTDOWN 3 ******
+ComputeDistances(BB)
+        Add face 1 to backlog
+        Add face 2 to backlog
+        Process face 2
+                Orientation next
+                Origin BB
+                        Process valve AA (2147483647) with distance 1
+                                Update distance to 1
+                        Process valve DD (2147483647) with distance 2
+                                Update distance to 2
+                                Add face 3 to backlog
+                        Process valve CC (2147483647) with distance 3
+                                Update distance to 3
+                        Process valve BB (0) with distance 4
+                Orientation previous
+                Origin BB
+                        Process valve CC (3) with distance 1
+                                Update distance to 1
+                        Process valve DD (2) with distance 2
+        Process face 1
+                Orientation next
+                Origin BB
+                        Process valve CC (1) with distance 1
+                        Process valve DD (2) with distance 2
+                        Process valve AA (1) with distance 3
+                        Process valve II (2147483647) with distance 4
+                                Update distance to 4
+                        Process valve JJ (2147483647) with distance 5
+                                Update distance to 5
+                        Process valve II (4) with distance 6
+                        Process valve AA (1) with distance 7
+                        Process valve BB (0) with distance 8
+                Orientation previous
+                Origin BB
+                        Process valve AA (1) with distance 1
+                        Process valve II (4) with distance 2
+                                Update distance to 2
+                        Process valve JJ (5) with distance 3
+                                Update distance to 3
+                        Process valve II (2) with distance 4
+                        Process valve AA (1) with distance 5
+                        Process valve DD (2) with distance 6
+        Process face 3
+                Orientation next
+                Origin DD
+                        Process valve EE (2147483647) with distance 3
+                                Update distance to 3
+                        Process valve FF (2147483647) with distance 4
+                                Update distance to 4
+                        Process valve GG (2147483647) with distance 5
+                                Update distance to 5
+                        Process valve HH (2147483647) with distance 6
+                                Update distance to 6
+                        Process valve GG (5) with distance 7
+                        Process valve FF (4) with distance 8
+                        Process valve EE (3) with distance 9
+                        Process valve DD (2) with distance 10
+                Orientation previous
+                Origin DD
+                        Process valve EE (3) with distance 3
+                        Process valve FF (4) with distance 4
+                        Process valve GG (5) with distance 5
+                        Process valve HH (6) with distance 6
+                        Process valve GG (5) with distance 7
+                        Process valve FF (4) with distance 8
+[AA] distance: 1
+[BB] origin
+[CC] distance: 1
+[DD] distance: 2
+[EE] distance: 3
+[FF] distance: 4
+[GG] distance: 5
+[HH] distance: 6
+[II] distance: 2
+[JJ] distance: 3
+Max distance: 8
+[HH] score: 476
+[EE] score: 447
+[CC] score: 446
+***** COUNTDOWN 2 ******
+ComputeDistances(HH)
+        Add face 3 to backlog
+        Process face 3
+                Orientation next
+                Origin HH
+                        Process valve GG (2147483647) with distance 1
+                                Update distance to 1
+                        Process valve FF (2147483647) with distance 2
+                                Update distance to 2
+                        Process valve EE (2147483647) with distance 3
+                                Update distance to 3
+                        Process valve DD (2147483647) with distance 4
+                                Update distance to 4
+                                Add face 2 to backlog
+                                Add face 1 to backlog
+                        Process valve EE (3) with distance 5
+                        Process valve FF (2) with distance 6
+                        Process valve GG (1) with distance 7
+                        Process valve HH (0) with distance 8
+                Orientation previous
+                Origin HH
+                        Process valve GG (1) with distance 1
+                        Process valve FF (2) with distance 2
+                        Process valve EE (3) with distance 3
+                        Process valve DD (4) with distance 4
+                        Process valve EE (3) with distance 5
+                        Process valve FF (2) with distance 6
+        Process face 1
+                Orientation next
+                Origin DD
+                        Process valve AA (2147483647) with distance 5
+                                Update distance to 5
+                        Process valve II (2147483647) with distance 6
+                                Update distance to 6
+                        Process valve JJ (2147483647) with distance 7
+                                Update distance to 7
+                        Process valve II (6) with distance 8
+                        Process valve AA (5) with distance 9
+                        Process valve BB (2147483647) with distance 10
+                                Update distance to 10
+                        Process valve CC (2147483647) with distance 11
+                                Update distance to 11
+                        Process valve DD (4) with distance 12
+                Orientation previous
+                Origin DD
+                        Process valve CC (11) with distance 5
+                                Update distance to 5
+                        Process valve BB (10) with distance 6
+                                Update distance to 6
+                        Process valve AA (5) with distance 7
+                        Process valve II (6) with distance 8
+                        Process valve JJ (7) with distance 9
+                        Process valve II (6) with distance 10
+        Process face 2
+                Orientation next
+                Origin DD
+                        Process valve CC (5) with distance 5
+                        Process valve BB (6) with distance 6
+                        Process valve AA (5) with distance 7
+                        Process valve DD (4) with distance 8
+                Orientation previous
+                Origin DD
+                        Process valve AA (5) with distance 5
+                        Process valve BB (6) with distance 6
+[AA] distance: 5
+[BB] distance: 6
+[CC] distance: 5
+[DD] distance: 4
+[EE] distance: 3
+[FF] distance: 2
+[GG] distance: 1
+[HH] origin
+[II] distance: 6
+[JJ] distance: 7
+Max distance: 7
+[EE] score: 544
+[CC] score: 536
+***** COUNTDOWN 1 ******
+ComputeDistances(EE)
+        Add face 3 to backlog
+        Process face 3
+                Orientation next
+                Origin EE
+                        Process valve DD (2147483647) with distance 1
+                                Update distance to 1
+                                Add face 2 to backlog
+                                Add face 1 to backlog
+                        Process valve EE (0) with distance 2
+                        Process valve FF (2147483647) with distance 3
+                                Update distance to 3
+                        Process valve GG (2147483647) with distance 4
+                                Update distance to 4
+                        Process valve HH (2147483647) with distance 5
+                                Update distance to 5
+                        Process valve GG (4) with distance 6
+                        Process valve FF (3) with distance 7
+                        Process valve EE (0) with distance 8
+                Orientation previous
+                Origin EE
+                        Process valve FF (3) with distance 1
+                                Update distance to 1
+                        Process valve GG (4) with distance 2
+                                Update distance to 2
+                        Process valve HH (5) with distance 3
+                                Update distance to 3
+                        Process valve GG (2) with distance 4
+                        Process valve FF (1) with distance 5
+                        Process valve EE (0) with distance 6
+        Process face 1
+                Orientation next
+                Origin DD
+                        Process valve AA (2147483647) with distance 2
+                                Update distance to 2
+                        Process valve II (2147483647) with distance 3
+                                Update distance to 3
+                        Process valve JJ (2147483647) with distance 4
+                                Update distance to 4
+                        Process valve II (3) with distance 5
+                        Process valve AA (2) with distance 6
+                        Process valve BB (2147483647) with distance 7
+                                Update distance to 7
+                        Process valve CC (2147483647) with distance 8
+                                Update distance to 8
+                        Process valve DD (1) with distance 9
+                Orientation previous
+                Origin DD
+                        Process valve CC (8) with distance 2
+                                Update distance to 2
+                        Process valve BB (7) with distance 3
+                                Update distance to 3
+                        Process valve AA (2) with distance 4
+                        Process valve II (3) with distance 5
+                        Process valve JJ (4) with distance 6
+                        Process valve II (3) with distance 7
+        Process face 2
+                Orientation next
+                Origin DD
+                        Process valve CC (2) with distance 2
+                        Process valve BB (3) with distance 3
+                        Process valve AA (2) with distance 4
+                        Process valve DD (1) with distance 5
+                Orientation previous
+                Origin DD
+                        Process valve AA (2) with distance 2
+                        Process valve BB (3) with distance 3
+[AA] distance: 2
+[BB] distance: 3
+[CC] distance: 2
+[DD] distance: 1
+[EE] origin
+[FF] distance: 1
+[GG] distance: 2
+[HH] distance: 3
+[II] distance: 3
+[JJ] distance: 4
+Max distance: 4
+[CC] score: 320
+        [1] release 0, move to valve DD
+        [2] release 0, open valve DD
+        [3] release 20, move to valve CC
+        [4] release 20, open valve CC
+        [5] release 22, move to valve EE
+        [6] release 22, open valve EE
+        [7] release 25, move to valve DD
+        [8] release 25, open valve DD
+        [9] release 45, move to valve HH
+        [10] release 45, open valve HH
+        [11] release 67, move to valve BB
+        [12] release 67, open valve BB
+        [13] release 80, move to valve JJ
+        [14] release 80, open valve JJ
+        [15] release 101, move to valve DD
+        [16] release 101, open valve DD
+[17]release 121
+[18]release 121
+[19]release 121
+[20]release 121
+[21]release 121
+[22]release 121
+[23]release 121
+[24]release 121
+[25]release 121
+[26]release 121
+[27]release 121
+[28]release 121
+[29]release 121
+[30]release 121
+Total release: 2414
+Number of open valves: 6
+        [1] EE
+        [2] CC
+        [3] DD
+        [4] BB
+        [5] HH
+        [6] JJ
+result 1: 0
+Elapsed time: 0.638000 seconds
+Result 2: 0
+Elapsed time: 0.001000 seconds
+
+C:\Users\aforgiel\source\AdventOfCodeDay16\x64\Debug\AdventOfCodeDay16.exe (process 39576) exited with code 0.
+To automatically close the console when debugging stops, enable Tools->Options->Debugging->Automatically close the console when debugging stops.
+Press any key to close this window . . .
