@@ -1,0 +1,415 @@
+Advent of Code - Day 16
+Opening file C:/Users/aforgiel/source/repos/AdventOfCode2022/AdventOfCodeDay16/input.txt => 0
+[0]: Valve "AA", flow rate: 0, score: 0
+        [0]: TW
+        [1]: GB
+        [2]: TI
+        [3]: NS
+        [4]: UL
+[1]: Valve "AH", flow rate: 0, score: 0
+        [0]: ZP
+        [1]: DI
+[2]: Valve "AJ", flow rate: 6, score: 0
+        [0]: IC
+        [1]: OH
+        [2]: ZR
+        [3]: NS
+        [4]: EM
+[3]: Valve "BP", flow rate: 0, score: 0
+        [0]: RO
+        [1]: VR
+[4]: Valve "BS", flow rate: 0, score: 0
+        [0]: JD
+        [1]: VY
+[5]: Valve "DI", flow rate: 23, score: 0
+        [0]: LE
+        [1]: AH
+[6]: Valve "EC", flow rate: 0, score: 0
+        [0]: OM
+        [1]: UL
+[7]: Valve "EM", flow rate: 0, score: 0
+        [0]: AJ
+        [1]: LN
+[8]: Valve "FE", flow rate: 0, score: 0
+        [0]: SO
+        [1]: HD
+[9]: Valve "GB", flow rate: 0, score: 0
+        [0]: XH
+        [1]: AA
+[10]: Valve "GD", flow rate: 0, score: 0
+        [0]: TX
+        [1]: PW
+[11]: Valve "GH", flow rate: 0, score: 0
+        [0]: OM
+        [1]: UV
+[12]: Valve "GN", flow rate: 0, score: 0
+        [0]: JL
+        [1]: PW
+[13]: Valve "HD", flow rate: 0, score: 0
+        [0]: FE
+        [1]: SC
+[14]: Valve "IC", flow rate: 0, score: 0
+        [0]: PW
+        [1]: AJ
+[15]: Valve "IR", flow rate: 10, score: 0
+        [0]: TN
+        [1]: NY
+        [2]: JF
+[16]: Valve "JD", flow rate: 15, score: 0
+        [0]: NV
+        [1]: TU
+        [2]: BS
+[17]: Valve "JF", flow rate: 0, score: 0
+        [0]: SA
+        [1]: IR
+[18]: Valve "JL", flow rate: 21, score: 0
+        [0]: GN
+        [1]: TN
+[19]: Valve "KC", flow rate: 0, score: 0
+        [0]: SP
+        [1]: RO
+[20]: Valve "KE", flow rate: 0, score: 0
+        [0]: OM
+        [1]: RI
+[21]: Valve "KO", flow rate: 0, score: 0
+        [0]: KZ
+        [1]: LE
+[22]: Valve "KV", flow rate: 0, score: 0
+        [0]: SP
+        [1]: VR
+[23]: Valve "KZ", flow rate: 18, score: 0
+        [0]: KO
+        [1]: VK
+        [2]: PJ
+[24]: Valve "LE", flow rate: 0, score: 0
+        [0]: DI
+        [1]: KO
+[25]: Valve "LH", flow rate: 0, score: 0
+        [0]: OM
+        [1]: VR
+[26]: Valve "LN", flow rate: 0, score: 0
+        [0]: EM
+        [1]: RI
+[27]: Valve "NS", flow rate: 0, score: 0
+        [0]: AJ
+        [1]: AA
+[28]: Valve "NV", flow rate: 0, score: 0
+        [0]: RI
+        [1]: JD
+[29]: Valve "NY", flow rate: 0, score: 0
+        [0]: IR
+        [1]: OH
+[30]: Valve "OH", flow rate: 0, score: 0
+        [0]: AJ
+        [1]: NY
+[31]: Valve "OM", flow rate: 7, score: 0
+        [0]: EC
+        [1]: GH
+        [2]: KE
+        [3]: ZR
+        [4]: LH
+[32]: Valve "PJ", flow rate: 0, score: 0
+        [0]: KZ
+        [1]: SP
+[33]: Valve "PW", flow rate: 9, score: 0
+        [0]: TI
+        [1]: GN
+        [2]: VY
+        [3]: GD
+        [4]: IC
+[34]: Valve "RI", flow rate: 3, score: 0
+        [0]: NV
+        [1]: KE
+        [2]: LN
+        [3]: XH
+        [4]: TX
+[35]: Valve "RO", flow rate: 19, score: 0
+        [0]: UV
+        [1]: BP
+        [2]: VK
+        [3]: KC
+[36]: Valve "SA", flow rate: 0, score: 0
+        [0]: VG
+        [1]: JF
+[37]: Valve "SC", flow rate: 14, score: 0
+        [0]: HD
+[38]: Valve "SO", flow rate: 22, score: 0
+        [0]: ZP
+        [1]: FE
+[39]: Valve "SP", flow rate: 24, score: 0
+        [0]: KC
+        [1]: KV
+        [2]: PJ
+[40]: Valve "TI", flow rate: 0, score: 0
+        [0]: AA
+        [1]: PW
+[41]: Valve "TN", flow rate: 0, score: 0
+        [0]: JL
+        [1]: IR
+[42]: Valve "TU", flow rate: 0, score: 0
+        [0]: JD
+        [1]: TW
+[43]: Valve "TW", flow rate: 0, score: 0
+        [0]: TU
+        [1]: AA
+[44]: Valve "TX", flow rate: 0, score: 0
+        [0]: RI
+        [1]: GD
+[45]: Valve "UL", flow rate: 0, score: 0
+        [0]: EC
+        [1]: AA
+[46]: Valve "UV", flow rate: 0, score: 0
+        [0]: GH
+        [1]: RO
+[47]: Valve "VG", flow rate: 25, score: 0
+        [0]: SA
+[48]: Valve "VK", flow rate: 0, score: 0
+        [0]: RO
+        [1]: KZ
+[49]: Valve "VR", flow rate: 11, score: 0
+        [0]: LH
+        [1]: KV
+        [2]: BP
+[50]: Valve "VY", flow rate: 0, score: 0
+        [0]: PW
+        [1]: BS
+[51]: Valve "XH", flow rate: 0, score: 0
+        [0]: GB
+        [1]: RI
+[52]: Valve "ZP", flow rate: 0, score: 0
+        [0]: SO
+        [1]: AH
+[53]: Valve "ZR", flow rate: 0, score: 0
+        [0]: OM
+        [1]: AJ
+[AA]
+        [0] -> TW, next: TU, id: 1
+        [1] -> GB, next: XH, id: 2
+        [2] -> TI, next: PW, id: 1
+        [3] -> NS, next: AJ, id: 3
+        [4] -> UL, next: EC, id: 4
+[AH]
+        [0] -> ZP, next: SO, id: 4
+        [1] -> DI, next: LE, id: 4
+[AJ]
+        [0] -> IC, next: PW, id: 3
+        [1] -> OH, next: NY, id: 1
+        [2] -> ZR, next: OM, id: 3
+        [3] -> NS, next: AA, id: 2
+        [4] -> EM, next: LN, id: 3
+[BP]
+        [0] -> RO, next: KC, id: 5
+        [1] -> VR, next: KV, id: 6
+[BS]
+        [0] -> JD, next: NV, id: 1
+        [1] -> VY, next: PW, id: 1
+[DI]
+        [0] -> AH, next: ZP, id: 4
+        [1] -> LE, next: KO, id: 4
+[EC]
+        [0] -> OM, next: GH, id: 4
+        [1] -> UL, next: AA, id: 4
+[EM]
+        [0] -> AJ, next: IC, id: 3
+        [1] -> LN, next: RI, id: 3
+[FE]
+        [0] -> SO, next: ZP, id: 4
+        [1] -> HD, next: SC, id: 4
+[GB]
+        [0] -> AA, next: TW, id: 1
+        [1] -> XH, next: RI, id: 2
+[GD]
+        [0] -> TX, next: RI, id: 1
+        [1] -> PW, next: GN, id: 2
+[GH]
+        [0] -> OM, next: EC, id: 4
+        [1] -> UV, next: RO, id: 4
+[GN]
+        [0] -> JL, next: TN, id: 2
+        [1] -> PW, next: GD, id: 1
+[HD]
+        [0] -> FE, next: SO, id: 4
+        [1] -> SC, next: HD, id: 4
+[IC]
+        [0] -> AJ, next: OH, id: 1
+        [1] -> PW, next: TI, id: 3
+[IR]
+        [0] -> TN, next: JL, id: 1
+        [1] -> NY, next: OH, id: 2
+        [2] -> JF, next: SA, id: 1
+[JD]
+        [0] -> BS, next: VY, id: 1
+        [1] -> NV, next: RI, id: 1
+        [2] -> TU, next: TW, id: 1
+[JF]
+        [0] -> IR, next: TN, id: 1
+        [1] -> SA, next: VG, id: 1
+[JL]
+        [0] -> GN, next: PW, id: 1
+        [1] -> TN, next: IR, id: 2
+[KC]
+        [0] -> SP, next: KV, id: 5
+        [1] -> RO, next: BP, id: 6
+[KE]
+        [0] -> OM, next: LH, id: 3
+        [1] -> RI, next: LN, id: 3
+[KO]
+        [0] -> KZ, next: VK, id: 4
+        [1] -> LE, next: DI, id: 4
+[KV]
+        [0] -> SP, next: KC, id: 6
+        [1] -> VR, next: BP, id: 5
+[KZ]
+        [0] -> KO, next: LE, id: 4
+        [1] -> VK, next: RO, id: 4
+        [2] -> PJ, next: SP, id: 4
+[LE]
+        [0] -> DI, next: AH, id: 4
+        [1] -> KO, next: KZ, id: 4
+[LH]
+        [0] -> OM, next: KE, id: 3
+        [1] -> VR, next: LH, id: 3
+[LN]
+        [0] -> EM, next: AJ, id: 3
+        [1] -> RI, next: KE, id: 3
+[NS]
+        [0] -> AA, next: GB, id: 2
+        [1] -> AJ, next: ZR, id: 3
+[NV]
+        [0] -> JD, next: BS, id: 1
+        [1] -> RI, next: XH, id: 1
+[NY]
+        [0] -> IR, next: JF, id: 1
+        [1] -> OH, next: AJ, id: 2
+[OH]
+        [0] -> AJ, next: NS, id: 2
+        [1] -> NY, next: IR, id: 1
+[OM]
+        [0] -> EC, next: UL, id: 4
+        [1] -> GH, next: UV, id: 4
+        [2] -> KE, next: RI, id: 3
+        [3] -> LH, next: VR, id: 3
+        [4] -> ZR, next: AJ, id: 3
+[PJ]
+        [0] -> KZ, next: KO, id: 4
+        [1] -> SP, next: PJ, id: 4
+[PW]
+        [0] -> GD, next: TX, id: 1
+        [1] -> GN, next: JL, id: 2
+        [2] -> IC, next: AJ, id: 1
+        [3] -> TI, next: AA, id: 3
+        [4] -> VY, next: BS, id: 1
+[RI]
+        [0] -> KE, next: OM, id: 3
+        [1] -> LN, next: EM, id: 3
+        [2] -> NV, next: JD, id: 1
+        [3] -> XH, next: GB, id: 1
+        [4] -> TX, next: GD, id: 2
+[RO]
+        [0] -> BP, next: VR, id: 6
+        [1] -> KC, next: SP, id: 5
+        [2] -> UV, next: GH, id: 4
+        [3] -> VK, next: KZ, id: 4
+[SA]
+        [0] -> JF, next: IR, id: 1
+        [1] -> VG, next: SA, id: 1
+[SC]
+        [0] -> HD, next: FE, id: 4
+[SO]
+        [0] -> FE, next: HD, id: 4
+        [1] -> ZP, next: AH, id: 4
+[SP]
+        [0] -> KC, next: RO, id: 6
+        [1] -> KV, next: VR, id: 5
+        [2] -> PJ, next: KZ, id: 4
+[TI]
+        [0] -> AA, next: NS, id: 3
+        [1] -> PW, next: IC, id: 1
+[TN]
+        [0] -> IR, next: NY, id: 2
+        [1] -> JL, next: GN, id: 1
+[TU]
+        [0] -> JD, next: TU, id: 1
+        [1] -> TW, next: AA, id: 1
+[TW]
+        [0] -> AA, next: TI, id: 1
+        [1] -> TU, next: JD, id: 1
+[TX]
+        [0] -> GD, next: PW, id: 2
+        [1] -> RI, next: NV, id: 1
+[UL]
+        [0] -> AA, next: UL, id: 4
+        [1] -> EC, next: OM, id: 4
+[UV]
+        [0] -> GH, next: OM, id: 4
+        [1] -> RO, next: VK, id: 4
+[VG]
+        [0] -> SA, next: JF, id: 1
+[VK]
+        [0] -> KZ, next: PJ, id: 4
+        [1] -> RO, next: UV, id: 4
+[VR]
+        [0] -> BP, next: RO, id: 5
+        [1] -> KV, next: SP, id: 6
+        [2] -> LH, next: OM, id: 3
+[VY]
+        [0] -> BS, next: JD, id: 1
+        [1] -> PW, next: VY, id: 1
+[XH]
+        [0] -> GB, next: AA, id: 1
+        [1] -> RI, next: TX, id: 2
+[ZP]
+        [0] -> AH, next: DI, id: 4
+        [1] -> SO, next: FE, id: 4
+[ZR]
+        [0] -> AJ, next: EM, id: 3
+        [1] -> OM, next: ZR, id: 3
+Total number of valves: 15
+        [1] release 0, move to valve UL : sum 0
+        [2] release 0, move to valve EC : sum 0
+        [3] release 0, move to valve OM : sum 0
+        [4] release 0, open valve OM : sum 0
+        [5] release 7, move to valve LH : sum 7
+        [6] release 7, move to valve VR : sum 14
+        [7] release 7, open valve VR : sum 21
+        [8] release 18, move to valve KV : sum 39
+        [9] release 18, move to valve SP : sum 57
+        [10] release 18, open valve SP : sum 75
+        [11] release 42, move to valve KC : sum 117
+        [12] release 42, move to valve RO : sum 159
+        [13] release 42, open valve RO : sum 201
+        [14] release 61, move to valve VK : sum 262
+        [15] release 61, move to valve KZ : sum 323
+        [16] release 61, open valve KZ : sum 384
+        [17] release 79, move to valve KO : sum 463
+        [18] release 79, move to valve LE : sum 542
+        [19] release 79, move to valve DI : sum 621
+        [20] release 79, open valve DI : sum 700
+        [21] release 102, move to valve AH : sum 802
+        [22] release 102, move to valve ZP : sum 904
+        [23] release 102, move to valve SO : sum 1006
+        [24] release 102, open valve SO : sum 1108
+        [25] release 124, move to valve FE : sum 1232
+        [26] release 124, move to valve HD : sum 1356
+        [27] release 124, move to valve SC : sum 1480
+        [28] release 124, open valve SC : sum 1604
+        [29] release 138, move to valve HD : sum 1742
+        [30] release 138, move to valve FE : sum 1880
+Total release: 1880
+Number of open valves: 8
+        [1] KZ
+        [2] VR
+        [3] SO
+        [4] RO
+        [5] SP
+        [6] OM
+        [7] SC
+        [8] DI
+result 1: 1880
+Elapsed time: 2.806000 seconds
+Result 2: 0
+Elapsed time: 0.001000 seconds
+
+C:\Users\aforgiel\source\AdventOfCodeDay16\x64\Debug\AdventOfCodeDay16.exe (process 50456) exited with code 0.
+To automatically close the console when debugging stops, enable Tools->Options->Debugging->Automatically close the console when debugging stops.
+Press any key to close this window . . .
